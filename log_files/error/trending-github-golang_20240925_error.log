@@ -1,0 +1,7 @@
+time="2024-09-25T11:56:52.226599+07:00" level=error msg="Test Error" file=/Users/edward/Desktop/trending-github-golang/main.go line=17
+time="2024-09-25T11:57:05.791497+07:00" level=error msg="Test Error" file=/Users/edward/Desktop/trending-github-golang/main.go line=17
+time="2024-09-25T13:17:21.949221+07:00" level=error msg="Test Error" file=/Users/edward/Desktop/trending-github-golang/main.go line=18
+time="2024-09-25T13:17:21.994105+07:00" level=error msg="sql: no rows in result set" file=/Users/edward/Desktop/trending-github-golang/main.go line=34
+time="2024-09-25T18:00:31.122145+07:00" level=error msg="validator not registered" file=/Users/edward/Desktop/trending-github-golang/handler/user_handler.go line=34
+time="2024-09-25T18:08:05.799771+07:00" level=error msg="Key: 'ReqSignUp.Email' Error:Field validation for 'Email' failed on the 'required' tag\nKey: 'ReqSignUp.Password' Error:Field validation for 'Password' failed on the 'required' tag\nKey: 'ReqSignUp.FullName' Error:Field validation for 'FullName' failed on the 'required' tag" file=/Users/edward/Desktop/trending-github-golang/handler/user_handler.go line=35
+time="2024-09-25T18:10:46.355336+07:00" level=error msg="validator not registered" file=/Users/edward/Desktop/trending-github-golang/handler/user_handler.go line=34

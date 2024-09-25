@@ -2,11 +2,18 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/sirupsen/logrus"
-	"runtime"
+	"os"
 	"trending-github-golang/db"
 	"trending-github-golang/handler"
+	"trending-github-golang/log"
+	"trending-github-golang/router"
 )
+
+func init() {
+	os.Setenv("APP_NAME", "trending-github-golang")
+	//os.Setenv("APP_VERSION", "v0.0.1")
+	log.InitLogger(false)
+}
 
 func main() {
 	sql := &db.Sql{
@@ -16,19 +23,15 @@ func main() {
 		Password: "1234",
 		DbName:   "postgres",
 	}
-	logError("Error connecting to database")
 	sql.Connect()
 	defer sql.Close() // after main work
-	e := echo.New()
-	e.GET("/user/sign-in", handler.HandleSignIn)
-	e.GET("/user/sign-up", handler.HandleSignUp)
-	e.Logger.Fatal(e.Start(":3000"))
-}
 
-func logError(err string) {
-	_, file, line, _ := runtime.Caller(1)
-	logrus.WithFields(logrus.Fields{
-		"file": file,
-		"line": line,
-	}).Fatal(err)
+	e := echo.New()
+	userHandle := handler.UserHandler{}
+	api := router.API{
+		Echo:        e,
+		UserHandler: &userHandle,
+	}
+	api.SetUp()
+	e.Logger.Fatal(e.Start(":3000"))
 }
