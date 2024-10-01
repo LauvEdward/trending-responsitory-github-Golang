@@ -11,6 +11,7 @@ type API struct {
 }
 
 func (a *API) SetUp() {
-	a.Echo.GET("/user/sign-in", a.UserHandler.HandleSignIn)
-	a.Echo.GET("/user/sign-up", a.UserHandler.HandleSignUp)
+	g := a.Echo.Group("/user")
+	g.GET("/sign-in", a.UserHandler.HandleSignIn)
+	g.GET("/sign-up", a.UserHandler.HandleSignUp)
 }

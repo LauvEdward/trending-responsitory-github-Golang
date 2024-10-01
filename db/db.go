@@ -20,7 +20,6 @@ func (s *Sql) Connect() {
 	dataSource := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", s.Host, s.Port, s.Username, s.Password, s.DbName)
 	println("data source" + dataSource)
 	s.Db = sqlx.MustConnect("postgres", dataSource)
-
 	err := s.Db.Ping()
 	if err != nil {
 		log.Fatal(err.Error())

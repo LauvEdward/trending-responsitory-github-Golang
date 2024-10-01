@@ -1,10 +1,12 @@
 package responsitory
 
 import (
-	"github.com/labstack/echo/v4"
+	"context"
 	"trending-github-golang/model"
+	"trending-github-golang/model/req"
 )
 
-type UserRepo interface{}
-
-func SaveUser(context echo.Context, user model.User) {}
+type UserRepo interface {
+	CheckUser(c context.Context, user req.ReqSignIn) (model.User, error)
+	SaveUser(c context.Context, user model.User) (model.User, error)
+}
